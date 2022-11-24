@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Data input:
+  = @text_summarizer.data_input
+%p
+  %b Data summarized:
+  = @text_summarizer.data_summarized
+
+= link_to 'Edit', edit_text_summarizer_path(@text_summarizer)
+\|
+= link_to 'Back', text_summarizers_path

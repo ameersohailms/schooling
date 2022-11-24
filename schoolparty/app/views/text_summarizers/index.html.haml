@@ -1,0 +1,30 @@
+%h1 Listing text_summarizers
+
+%table
+  %thead
+    %tr
+      %th Data input
+      %th Data summarized
+      %th show
+      %th edit
+      %th delete
+
+  %tbody
+    - @text_summarizers.each do |text_summarizer|
+      %tr
+        %td= text_summarizer.data_input
+        %td= text_summarizer.data_summarized
+        %td= link_to 'Show', text_summarizer
+        %td= link_to 'Edit', edit_text_summarizer_path(text_summarizer)
+        %td= link_to 'Destroy', text_summarizer, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Text summarizer', new_text_summarizer_path
+
+
+:css
+  td {
+    padding: 30px;
+
+  }

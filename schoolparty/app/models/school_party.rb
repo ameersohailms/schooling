@@ -1,0 +1,2 @@
+class SchoolParty < ApplicationRecord
+end

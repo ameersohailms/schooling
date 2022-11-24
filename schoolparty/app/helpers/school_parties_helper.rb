@@ -1,0 +1,2 @@
+module SchoolPartiesHelper
+end

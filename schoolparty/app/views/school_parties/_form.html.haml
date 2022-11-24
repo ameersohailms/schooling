@@ -1,0 +1,16 @@
+= form_for @school_party do |f|
+  - if @school_party.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@school_party.errors.count, "error")} prohibited this school_party from being saved:"
+      %ul
+        - @school_party.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :description
+    = f.text_area :description
+  .actions
+    = f.submit 'Save'

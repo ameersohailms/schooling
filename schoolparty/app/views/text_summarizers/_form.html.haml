@@ -1,0 +1,44 @@
+= form_for @text_summarizer do |f|
+  - if @text_summarizer.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@text_summarizer.errors.count, "error")} prohibited this text_summarizer from being saved:"
+      %ul
+        - @text_summarizer.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :data_input
+    = f.text_area :data_input, id: "data_input"
+  .field
+    = f.label :data_summarized
+    = f.text_area :data_summarized , id: "data_summarized"
+    %a.tablinks{ :id => "btnSubmit"} Summarize
+  -#.actions
+  -#  %button{:onclick => "myFunction()"} Summarize
+  .actions
+    = f.submit 'Save'
+
+
+
+:javascript
+  $(document).ready( function () {
+    $("#btnSubmit").click(function(){
+    console.log(this)
+    console.log()
+        var text = document.getElementById("data_input").value
+        $.ajax({
+          type: "get",
+          url: "/text_summarizers/new",
+          data: {text: text},
+          success: function(data){
+          console.log(data)
+              document.getElementById('data_summarized').innerHTML = data.summirized_data;
+          },
+          error: function(xhr, status, error) {
+          }
+        });
+    })
+  });
+
+
+

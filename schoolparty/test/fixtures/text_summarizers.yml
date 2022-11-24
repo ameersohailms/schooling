@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data_input: MyText
+  data_summarized: MyText
+
+two:
+  data_input: MyText
+  data_summarized: MyText

@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @school_party.title
+%p
+  %b Description:
+  = @school_party.description
+
+= link_to 'Edit', edit_school_party_path(@school_party)
+\|
+= link_to 'Back', school_parties_path

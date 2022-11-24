@@ -1,0 +1,23 @@
+%h1 SCHOOLS
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Description
+      %th Show
+      %th Edit
+      %th Delete
+
+  %tbody
+    - @school_parties.each do |school_party|
+      %tr
+        %td= school_party.title
+        %td= school_party.description
+        %td= link_to 'Show', school_party
+        %td= link_to 'Edit', edit_school_party_path(school_party)
+        %td= link_to 'Destroy', school_party, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New School party', new_school_party_path
